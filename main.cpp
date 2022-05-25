@@ -109,8 +109,8 @@ int main(int argv, char **args)
   SDL_Window *window = SDL_CreateWindow("window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 480, 272, 0);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  int a = -100;
-  int dir = 1;
+  int i = -100;
+  int dir = -1;
   int running = 1;
   SDL_Event event;
   while (running)
@@ -141,12 +141,11 @@ int main(int argv, char **args)
     Color color = Color{1, 2, 3, 4};
     std::vector<Shape *> items;
 
-    a += dir;
-    if (a > 100)
+    i += dir;
+    if (i > 100)
       dir = -1;
-    else if (a < -100)
+    else if (i < -100)
       dir = 1;
-    int i = a - 100;
     unsigned char col = dir == 1 ? 0 : 255;
 
     Rectangle *rectangle = new Rectangle(350, 200 + (i < 0 ? i : i * -1), 30 + i + 100, 40, Color{123, 123, 123, 255});
